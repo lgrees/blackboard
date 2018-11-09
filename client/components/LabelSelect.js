@@ -1,11 +1,12 @@
 import React from 'react';
 import { div } from '@tensorflow/tfjs';
 
-export const LabelSelect = () => {
+export const LabelSelect = props => {
+  const { handleChange } = props;
   return (
     <div>
       <label htmlFor="">Data Label</label>
-      <select>
+      <select name="label" onChange={handleChange}>
         <option value="">--Please choose a Label--</option>
         <option value="1">1</option>
         <option value="2">2</option>
