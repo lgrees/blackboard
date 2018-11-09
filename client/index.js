@@ -78,7 +78,7 @@ let s = sk => {
       // let y1 = sk.map(lineY[0], 0, 1, 400, 0);
       // let y2 = sk.map(lineY[1], 0, 1, 400, 0);
 
-      console.log(tf.memory());
+      // console.log(tf.memory());
     });
   };
   sk.mousePressed = () => {
