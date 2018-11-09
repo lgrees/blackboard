@@ -5,7 +5,7 @@ export const Result = props => {
   return (
     <div>
       <p>Here is your result: </p>
-      <p>{result}</p>
+      <textarea>{result}</textarea>
     </div>
   );
 };
