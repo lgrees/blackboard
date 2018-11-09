@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "webpack-dev-server"
+    "start": "npm run build-watch & npm run start-server",
+    "start-server": "nodemon server --ignore client --ignore public",
+    "start-dev": "webpack-dev-server",
+    "build-watch": "webpack -w"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,8 @@
     "@tensorflow/tfjs": "^0.13.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "p5": "^0.7.2",
     "webpack-dev-server": "^3.1.10"
   }

@@ -1,4 +1,4 @@
-import { loss, optimizer, predict } from './models/regression';
+import { loss, optimizer, predict } from '../models/regression';
 import p5 from 'p5';
 import * as tf from '@tensorflow/tfjs';
 
