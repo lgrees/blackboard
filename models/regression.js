@@ -1,6 +1,9 @@
+import * as tf from '@tensorflow/tfjs';
+// import { random } from 'p5';
+
 const learningRate = 0.3;
-a = tf.variable(tf.scalar(random(1)));
-b = tf.variable(tf.scalar(random(1)));
+let a = tf.variable(tf.scalar(Math.random()));
+let b = tf.variable(tf.scalar(Math.random()));
 
 export const optimizer = tf.train.sgd(learningRate);
 
