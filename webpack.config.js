@@ -1,5 +1,8 @@
 module.exports = {
-  entry: './client/index.js',
+  entry: [
+    '@babel/polyfill', // enables async-await
+    './client/index.js',
+  ],
   mode: 'development',
   output: {
     path: __dirname + '/public',
