@@ -27,23 +27,6 @@ class App extends Component {
   }
 
   async addTrainingData() {
-<<<<<<< HEAD
-    const canvas = document.getElementById('defaultCanvas0');
-    const canvasTensor = tf.fromPixels(canvas);
-    const logits = this.mobilenet.infer(canvasTensor, 'conv_preds');
-    console.log('Class data added for label= ', parseInt(this.state.label));
-    await this.KNNClassifier.addExample(logits, parseInt(this.state.label));
-  }
-
-  async predictResult() {
-    const canvas = document.getElementById('defaultCanvas0');
-    const canvasTensor = tf.fromPixels(canvas);
-    const logits = this.mobilenet.infer(canvasTensor, 'conv_preds');
-    const prediction = await this.KNNClassifier.predictClass(logits);
-    const other = await this.KNNClassifier.predict(canvasTensor);
-    console.log('prediction: ', prediction);
-    console.log('other: ', other);
-=======
     this.setState({ result: '' });
     const canvas = document.getElementById('defaultCanvas0');
     const ctx = canvas.getContext('2d');
@@ -75,7 +58,6 @@ class App extends Component {
     // console.log('knn: ', knn);
     // console.log('top K Indices: ', topKIndices);
     console.log('prediction: ', prediction);
->>>>>>> 602ca1f3422564bafd40fc2657d64be73eaef355
   }
 
   async componentDidMount() {
