@@ -6,6 +6,7 @@ import Button from './components/Button';
 import LabelSelect from './components/LabelSelect';
 import ModeSelect from './components/ModeSelect';
 import Result from './components/Result';
+import ClearButton from './components/ClearButton';
 import sketch from './sketch';
 
 class App extends Component {
@@ -48,15 +49,9 @@ class App extends Component {
     const logits = this.mobilenet.infer(imgData, 'conv_preds');
     const prediction = await this.KNNClassifier.predictClass(logits, 3);
     this.setState({ result: prediction.classIndex.toString() });
-    sketch.clear();
-    sketch.createCanvas(400, 400);
-    sketch.background(80);
-    console.log('prediction: ', prediction);
   }
 
   async componentDidMount() {
-    const myStorage = window.localStorage;
-    myStorage.clear();
     this.KNNClassifier = knn.create();
     this.mobilenet = await mobilenetModule.load();
   }
@@ -69,6 +64,11 @@ class App extends Component {
           mode={mode}
           predict={this.predictResult}
           train={this.addTrainingData}
+        />
+        <ClearButton
+          clear={() => {
+            this.setState({ result: '' });
+          }}
         />
         <ModeSelect handleChange={this.handleChange} />
         {this.state.mode === 'train' && (
