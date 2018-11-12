@@ -9,6 +9,7 @@ let s = sk => {
   sk.draw = () => {
     // sk.background(80);
     if (sk.mouseIsPressed) {
+      sk.frameRate(70);
       sk.fill(1000);
       sk.stroke(1000);
       sk.ellipse(sk.mouseX, sk.mouseY, 10, 10);

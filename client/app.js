@@ -36,7 +36,6 @@ class App extends Component {
     sketch.createCanvas(400, 400);
     sketch.background(80);
     const label = parseInt(this.state.label);
-    // const label = Math.floor(Math.random() * Math.floor(2));
     const logits = this.mobilenet.infer(imgTensor, 'conv_preds');
     await this.KNNClassifier.addExample(logits, label);
   }
@@ -52,15 +51,12 @@ class App extends Component {
     sketch.clear();
     sketch.createCanvas(400, 400);
     sketch.background(80);
-    // const knn = this.KNNClassifier.similarities(logits).asType('float32');
-    // const topKIndices = topK(await knn.dataSync(), 3).indices;
-
-    // console.log('knn: ', knn);
-    // console.log('top K Indices: ', topKIndices);
     console.log('prediction: ', prediction);
   }
 
   async componentDidMount() {
+    const myStorage = window.localStorage;
+    myStorage.clear();
     this.KNNClassifier = knn.create();
     this.mobilenet = await mobilenetModule.load();
   }
